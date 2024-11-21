@@ -1,4 +1,8 @@
 /* Estilos para index.blade.php - Listado de fotos */
+body{
+    background-color: lightblue;
+}
+
 
 .index-container {
     margin: 40px auto;
@@ -86,3 +90,5 @@ h1 {
 .create-btn:hover {
     background: linear-gradient(135deg, rgb(251, 197, 49), rgb(0, 204, 255));
 }
+
+
