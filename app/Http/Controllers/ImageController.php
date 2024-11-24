@@ -71,7 +71,7 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        //
+        return view('gallery.edit', ['image' => $image]);
     }
 
     /**
@@ -79,7 +79,9 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        //
+        $image->original_name = $request->title;
+        $image->update();
+        return redirect(url('image'));
     }
 
     /**
@@ -87,6 +89,7 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        //
+        $image->delete();
+        return redirect(url('image'));
     }
 }
