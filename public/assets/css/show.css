@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #00000079;
+    display: flex; /* Usar flexbox para centrar contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 100vw; /* Asegura que ocupe el ancho completo de la ventana */
+    height: 100vh; /* Asegura que ocupe el alto completo de la ventana */
+    overflow: hidden; /* Evitar barras de desplazamiento */
+    position: relative;
+}
+
+.go-back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 6rem;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.5s ease;
+    text-transform: uppercase;
+    text-decoration: none;
+    z-index: 10; 
+}
+
+.go-back-btn:hover {
+    background: #333;
+}
+
+img {
+    max-width: 100%; /* Limitar el ancho al 100% del viewport */
+    max-height: 100%; /* Limitar la altura al 100% del viewport */
+    object-fit: contain; /* Asegurar que la imagen mantenga su proporción */
+    position: relative; 
+    z-index: 1; /* Mantener la imagen detrás del botón */
+}

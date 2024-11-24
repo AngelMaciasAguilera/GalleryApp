@@ -63,7 +63,7 @@ class ImageController extends Controller
      */
     public function show(Image $image)
     {
-        //
+        return view('gallery.show', ['image' => $image]);    
     }
 
     /**

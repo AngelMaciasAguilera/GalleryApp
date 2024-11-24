@@ -15,14 +15,14 @@
             <div class="photo-list">
                 @foreach ($imagesuser as $image)
                 <div class="photo-item">
-                    <img src="data:image/{{ $image->type }};base64,{{ $image->image64 }}" alt="Foto" class="photo-image">
+                    <img src="data:image/{{ $image->type }};base64,{{ $image->image64}}" alt="Foto" class="photo-image">
                     <div class="photo-info">
                         <h3>{{$image->original_name}}</h3>
                         <p>{{$image->created_at}}</p>
                     </div>
                     <div class="photo-actions">
-                        <a href="" class="btn">Ver</a>
-                        <a href="" class="btn">Editar</a>
+                        <a href="{{url('image/' . $image->id)}}" class="btn">Ver</a>
+                        <a href="{{url('image/' . $image->id . '/edit')}}" class="btn">Editar</a>
                         <form action="" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
