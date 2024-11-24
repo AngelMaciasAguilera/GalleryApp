@@ -53,7 +53,8 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
         if($user){
             if(Hash::check($request->password, $user->password)){
-                return redirect('image');
+                $request->session()->put('user', $user->email);
+                return redirect(route('image.index'));
             }else{
                 $error = 'The password is incorrect';
             }

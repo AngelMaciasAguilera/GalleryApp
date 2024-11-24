@@ -12,7 +12,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('gallery.index');
+        $imagesuser = Image::where('user', session('user'))->get();
+        return view('gallery.index', ['imagesuser' => $imagesuser]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('gallery.create');
     }
 
     /**
@@ -28,7 +29,33 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->hasFile('file') && $request->file('file')->isValid()) {
+            //el archivo se guarda en el storage private
+            $path = $request->file('file')->store('usr_images', 'local');
+
+            //se obtiene la ruta al archivo guardado
+            $realPath = storage_path('app/private') . '/' . $path;
+            
+            //se obtiene el contenido del archivo
+            $data = file_get_contents($realPath);
+            //se obtiene el contenido del archivo en base 64
+            $base64 = base64_encode($data);
+            //se obtiene la extensión del archivo
+            $type = pathinfo($realPath, PATHINFO_EXTENSION);
+            //se construye el objeto que se va a almacenar en la base de datos
+            $image = new Image();
+            $image->original_name = $request->file('file')->getClientOriginalName();
+            $image->name = $request->file('file')->hashName();
+            $image->user = session('user');
+            $image->path = $path;
+            $image->image64 = $base64;
+            $image->image = $data;
+            $image->type = $type;
+            //se guarda el objeto en la base de datos
+            $image->save();
+            return redirect(url('image'));
+        }
+
     }
 
     /**

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="{{ asset('css/signin.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/signin.css') }}">
 </head>
 <body>
     <div class="container">

@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/index.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/index.css')}}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
     <div class="index-container">
+        <a href="{{route('login')}}" class="go-back-btn">Log out</a>
         <h1>Galería de Fotos</h1>
-    
-        <div class="photo-list">
+        <div class="image-gallery">
+            <div class="photo-list">
+                @foreach ($imagesuser as $image)
                 <div class="photo-item">
-                    <img src="" alt="Foto" class="photo-image">
+                    <img src="data:image/{{ $image->type }};base64,{{ $image->image64 }}" alt="Foto" class="photo-image">
                     <div class="photo-info">
-                        <h3>Prueba</h3>
-                        <p>Esta es una prueba</p>
+                        <h3>{{$image->original_name}}</h3>
+                        <p>{{$image->created_at}}</p>
                     </div>
                     <div class="photo-actions">
                         <a href="" class="btn">Ver</a>
@@ -28,10 +30,11 @@
                         </form>
                     </div>
                 </div>
+                @endforeach
+            </div>
         </div>
-    
-        <a href="" class="create-btn">Agregar Nueva Foto</a>
-    </div>
+        <a href="{{route('image.create')}}" class="create-btn">Agregar Nueva Foto</a>
+    </div>    
 </body>
 </html>
 

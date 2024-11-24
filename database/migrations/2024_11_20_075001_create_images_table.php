@@ -19,12 +19,13 @@ return new class extends Migration
             $table->string('type');
             $table->string('user');
             $table->binary('image');
+            $table->foreign('user')->references('email')->on('users')->onDelete('cascade');
             $table->binary('image64');
             $table->timestamps();
         });
-        $sql = 'alter table file change image image longblob';
+        $sql = 'alter table images change image image longblob';
         DB::statement($sql);
-        $sql = 'alter table file change image64 image64 longblob';
+        $sql = 'alter table images change image64 image64 longblob';
         DB::statement($sql);
     }
 
