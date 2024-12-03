@@ -37,7 +37,7 @@ nos abrirá el explrador de archivos para que elijamos la foto que queremos subi
 
 Ademas se incluye un boton de go back por si nos arrepentimos y no queremos subir ninguna imagen.
 
-#### Pagina de edición de un pokemon
+#### Pagina de edición de la imagen
 
 ![alt text](image-5.png)
 
@@ -45,13 +45,13 @@ En la pagina de edicion como se puede apreciar nos deja editar el nombre de la i
 la cojo de la base de datos con lo cual no produce conflicto a la hora de editar el nombre de la imagen.
 
 
-#### Eliminación de un pokemon 
+#### Eliminación de la imagen 
 ![alt text](image-6.png)
 
 Para la eliminación de una imagen utilizaremos JavaScript para que nos muestre una ventanita que servirá para que el usuario nos confirme la eliminación de la imagen si de verdad quiere hacerlo.
 
 
-#### Vista en profundidad del pokemon con usuario logueado(No cambia respecto al no logueado):
+#### Vista en profundidad de la imagen con usuario
 
 ![alt text](image-7.png)
 
