@@ -1,66 +1,60 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Este proyecto consiste en una aplicacion para subir archivos a modo de galeria y estará hecha en laravel.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##### Login de la aplicacion
 
-## About Laravel
+![alt text](image.png)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+En este login se incluye un formulario para que cada usuario se pueda loguear introduciendo sus credenciales(email y password) y un boton que te permite registrarte si no lo estas. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+#### Sign In de la aplicacion
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![alt text](image-1.png)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+En este signin se incluye un formulario para que cada usuario se pueda registrar introduciendo su nombre su email y su contraseña. Si el registro sale correctamente te redirige al login, sino te imprime un mensajito indicando lo que ha fallado y utilizando el metodo old para que el usuario no tenga que volver a escribir lo que ya ha puesto salvo la contraseña que eso por motivos de seguridad es mejor no guardarla con old. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+#### Index de la galeria para cada usuario
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+![alt text](image-2.png)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Si el usuario esta logueado vemos que le apareceran las imagenes que haya guardado o insertado en la base de datos pero las suyas unicamente, de nadie mas ya que eso rompería la lógica de lo que consiste una galería. Esta vista incluye ademas por cada foto 3 botones para administrar las fotos de la manera que deseemos, ya sea verla mas en profundidad(view), editarla(edit) o eliminarla(delete).
 
-## Code of Conduct
+Ademas se nos incluye un boton para añadir nuevas imagenes y otro boton en la esquina superior izquierda para cerrar sesion(log out).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+#### Pagina de subir imagenes
+![alt text](image-3.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+En la pagina de subida de imagenes como podéis apreciar aparece una ventanita con un campo que contiene un boton para seleccionar archivos si le damos
+nos abrirá el explrador de archivos para que elijamos la foto que queremos subir.
 
-## License
+![alt text](image-4.png)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ademas se incluye un boton de go back por si nos arrepentimos y no queremos subir ninguna imagen.
+
+#### Pagina de edición de un pokemon
+
+![alt text](image-5.png)
+
+En la pagina de edicion como se puede apreciar nos deja editar el nombre de la imagen incluso podemos quitar su extension, ya que esta misma 
+la cojo de la base de datos con lo cual no produce conflicto a la hora de editar el nombre de la imagen.
+
+
+#### Eliminación de un pokemon 
+![alt text](image-6.png)
+
+Para la eliminación de una imagen utilizaremos JavaScript para que nos muestre una ventanita que servirá para que el usuario nos confirme la eliminación de la imagen si de verdad quiere hacerlo.
+
+
+#### Vista en profundidad del pokemon con usuario logueado(No cambia respecto al no logueado):
+
+![alt text](image-7.png)
+
+En esta pagina se nos muestra la imagen con la resolucion de pixeles que contenga a estilo visualizador de imagenes de chrome y un boton para volver a la home.
+
+## Author: Jose Ángel Macías Aguilera.
